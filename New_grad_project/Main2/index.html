@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Main.otfx</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="aframe.0.8.1.min.js"></script>
+    <script src="aframe-animation-component.min.js"></script>
+    <script src="aframe-poly-api-obj-component.min.js"></script>
+    <script src="main.js"></script>
+  </head>
+  
+  <body>
+    <div id="splash">
+      <div class="loading"></div>
+      <div class="start-button">Start</div>
+      <div class="credits">
+        <div class="wrapper">	<a class="show-credits" href="#">Model Credits</a>
+          <ul class="credits-list">
+            <li><a href="https://poly.google.com/view/28nBVxw_0Hb" target="_blank">Stellar: Damian Elishys (Pan Diman)</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <a-scene fog="color: #131212; far: 20.60; type: linear;" shadow="receive: true; cast: true;">
+      <a-assets>
+        <a-asset-item id="materials2mtl" src="assets/materials2.mtl"></a-asset-item>
+        <a-asset-item id="materials3mtl" src="assets/materials3.mtl"></a-asset-item>
+        <a-asset-item id="taxi-materialsmtl" src="assets/taxi-materials.mtl"></a-asset-item>
+        <a-asset-item id="materials1mtl" src="assets/materials1.mtl"></a-asset-item>
+        <a-asset-item id="building1obj" src="assets/building1.obj"></a-asset-item>
+        <a-asset-item id="building2obj" src="assets/building2.obj"></a-asset-item>
+        <a-asset-item id="ambulanceobj" src="assets/ambulance.obj"></a-asset-item>
+        <a-asset-item id="model3obj" src="assets/model3.obj"></a-asset-item>
+        <a-asset-item id="car-materialmtl" src="assets/car-material.mtl"></a-asset-item>
+        <a-asset-item id="carobj" src="assets/car.obj"></a-asset-item>
+        <a-asset-item id="ambulance-materialsmtl" src="assets/ambulance-materials.mtl"></a-asset-item>
+        <a-asset-item id="taxiobj" src="assets/taxi.obj"></a-asset-item>
+        <a-asset-item id="modelobj" src="assets/B1x742QjP/model.obj"></a-asset-item>
+        <a-asset-item id="materialsmtl" src="assets/B1x742QjP/materials.mtl"></a-asset-item>
+      </a-assets>
+      
+      <a-entity id="main-camera-wrapper" position="-4.45 4.51 10.39" rotation="0 -405.52 0"
+      animation="delay: 0; dir: normal; dur: 2000; easing: easeInOutQuad; elasticity: 400; loop: 0; property: position; startEvents: green-clicked; to: 1.3 5.8 -0.2; "
+      animation__1="delay: 0; dir: normal; dur: 2000; easing: linear; elasticity: 400; loop: 0; property: position; startEvents: ballon-low-intersection-clicked; to: 4.7 3.5 3.1; "
+      animation__2="delay: 0; dir: normal; dur: 2000; easing: easeInOutQuad; elasticity: 400; loop: 0; property: position; startEvents: purple-clicked; to: 0.8 3.8 8.5; "
+      animation__3="delay: 0; dir: normal; dur: 5000; easing: easeInOutQuad; elasticity: 400; loop: 0; property: position; startEvents: blue-clicked; to: -2 2.3 9.7; ">
+        <a-camera id="main-camera" visible="true" wasd-controls="enabled: false;" cursor="rayOrigin: mouse;"
+        raycaster="objects: .clickable; interval: 1;">
+          
+          <a-ring id="fuse-progress" geometry="radiusInner: 0.02; radiusOuter: 0.03; thetaLength: 360; thetaStart: 90;"
+          material="color: #f5fcff; opacity: 0; repeat: 1 1; shader: flat;" position="0 0 -0.999"
+          rotation="0 0 0" scale="1 1 1" visible="true" animation="delay: 0; dir: normal; dur: 1500; easing: linear; loop: 0; property: geometry.thetaLength; startEvents: fusing; to: 0; from: 360;"
+          animation__1="delay: 0; dir: normal; dur: 500; easing: linear; loop: 0; property: opacity; startEvents: fusing; to: 1; from: 0;"></a-ring>
+          <a-cursor id="fuse-cursor" cursor="fuse: true;" geometry="radiusInner: 0.02; radiusOuter: 0.03; thetaLength: 360; thetaStart: 90;"
+          material="color: #232323; opacity: 1; repeat: 1 1; shader: flat;" position="0 0 -1"
+          raycaster="objects: .clickable;" rotation="0 0 0" scale="1 1 1" visible="true"></a-cursor>
+        </a-camera>
+      </a-entity>
+      
+      <a-light id="ambient-light-1" light="type: ambient; color: #ffffff; intensity: 1;"
+      visible="true"></a-light>
+      
+      <a-entity id="poly-model-1" position="1.50 14.25 5.75" rotation="4.66 -90 0.00"
+      scale="5 5 5" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5;" poly-api-obj="obj: #modelobj; mtl: #materialsmtl;"
+      shadow="cast: true; receive: true;" visible="true"></a-entity>
+      
+      <a-entity id="poly-model" position="-3.50 7.50 5.75" rotation="4.66 -90 0.00"
+      scale="5 5 5" geometry="primitive: box; width: 1.5; height: 1.5; depth: 1.5;" poly-api-obj="obj: #modelobj; mtl: #materialsmtl;"
+      shadow="cast: true; receive: true;" visible="true"></a-entity>
+      
+      <a-sky id="sky" geometry="radius: 5000; segmentsHeight: 20; segmentsWidth: 64;"
+      material="color: #9c9c9c; flatShading: true; opacity: 1; repeat: 1 1; shader: flat; side: double;"
+      position="0 0 0" rotation="0 0 0" scale="-1 1 1" shadow="receive: true; cast: true;"
+      visible="true"></a-sky>
+      
+      <a-light id="ambient-light" light="color: #b3b3f5; intensity: 0.24; type: ambient;"
+      visible="true"></a-light>
+      
+      <a-light id="point-light" light="castShadow: false; color: #93dcfa; distance: 40.80; intensity: 0.54; type: point;"
+      position="-1.70 8.60 -8.90" visible="true"></a-light>
+      
+      <a-obj-model id="obj-model-40" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #ambulance-materialsmtl; obj: #ambulanceobj;" position="0.10 0.30 17.90"
+      rotation="-1.59 179.26 -0.31" scale="0.5 0.5 0.5" shadow="receive: true; cast: true;"
+      visible="true" animation="delay: 0; dir: normal; dur: 5000; easing: linear; elasticity: 400; loop: true; property: position; startEvents: scene-started; to: 0.10 0.30 -17; "></a-obj-model>
+      
+      <a-obj-model id="obj-model-41" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #car-materialmtl; obj: #carobj;" position="-1.60 0.50 -17.70" rotation="-0.42 93.25 1.57"
+      scale="1 1 1" shadow="receive: true; cast: true;" visible="true" animation="delay: 0; dir: normal; dur: 5000; easing: linear; elasticity: 400; loop: true; property: position; startEvents: scene-started; to: 0.10 0.30 17; "></a-obj-model>
+      
+      <a-obj-model id="car-2" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #car-materialmtl; obj: #carobj;" position="-7.90 0.30 5.20" rotation="-1.53 -171.74 0.44"
+      scale="1 1 1" shadow="receive: true; cast: true;" visible="true" animation="delay: 0; dir: normal; dur: 5000; easing: linear; elasticity: 400; loop: true; property: position; startEvents: scene-started; to: 7.9 0.50 5.20; "></a-obj-model>
+      
+      <a-obj-model id="car" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #taxi-materialsmtl; obj: #taxiobj;" position="-9.00 0.20 4.90" rotation="-0.34 90.25 1.59"
+      scale="0.44 0.46 0.4" shadow="receive: true; cast: true;" visible="true" animation="delay: 1500; dir: normal; dur: 5000; easing: linear; elasticity: 400; loop: true; property: position; startEvents: scene-started; to: 10 0.40 5.2; "></a-obj-model>
+      
+      <a-obj-model id="car-1" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #taxi-materialsmtl; obj: #taxiobj;" position="7.90 0.20 4.10" rotation="-0.34 90.25 1.59"
+      scale="0.44 0.46 0.4" shadow="receive: true; cast: true;" visible="true" animation="delay: 1500; dir: normal; dur: 5000; easing: linear; elasticity: 400; loop: true; property: position; startEvents: scene-started; to: -10 0.40 5.2; "></a-obj-model>
+      
+      <a-light id="point-light-1" light="castShadow: true; color: #fdd11f; distance: 9.40; intensity: 0.80; type: point;"
+      position="4.3 1.9 4.6" visible="true"></a-light>
+      
+      <a-light id="point-light-2" light="castShadow: false; color: #fdb61f; distance: 9.00; intensity: 0.12; type: point;"
+      position="-2 1.9 4.6" visible="true"></a-light>
+      
+      <a-plane id="ground" geometry="height: 5000; width: 5000;" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      position="0 0 0" rotation="-90 0 0" shadow="receive: true; cast: true;" visible="true"></a-plane>
+      
+      <a-obj-model id="obj-model" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="1.30 3.40 -0.40" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-6" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="1.30 0.60 2.40" rotation="0 0 0"
+      scale="2 0.5 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-10" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="1.30 0.60 6.30" rotation="0 0 0"
+      scale="2 0.5 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-25" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="1.10 0.60 11.30" rotation="0 0 0"
+      scale="2 1.98 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-sphere id="sphere" geometry="radius: 1;" material="color: #f8fc00; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      position="-0.50 0.91 -19.60" rotation="-9.62 -364.63 0.00" scale="1 1 1" shadow="receive: true; cast: true;"
+      visible="true"></a-sphere>
+      
+      <a-obj-model id="obj-model-12" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="-2.30 0.60 7.50" rotation="0 0 0"
+      scale="2 1.7 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-17" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="-3.30 0.60 6.20" rotation="0 0 0"
+      scale="2 1.7 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-35" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="9.20 0.60 2.80" rotation="0 0 0"
+      scale="2 1.7 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-15" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="-2.30 0.60 8.70" rotation="0 0 0"
+      scale="2 0.56 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-9" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="-2.30 0.60 -1.70" rotation="0 0 0"
+      scale="2 1.44 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-26" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="-2.30 0.60 -3.90" rotation="0 0 0"
+      scale="2 0.6 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-42" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials3mtl; obj: #model3obj;" position="-2.30 0.60 -5.00" rotation="0 0 0"
+      scale="2 0.6 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-1" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-2.20 0.80 1.20" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-43" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-2.20 0.80 -6.30"
+      rotation="0 0 0" scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-18" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-3.50 0.80 2.90" rotation="0.00 -91.00 0.00"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-47" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-6.20 0.80 2.90" rotation="0.00 -91.00 0.00"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-50" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-5.60 0.80 6.00" rotation="0.00 -91.00 0.00"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-52" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-8.10 0.80 6.00" rotation="0.00 -91.00 0.00"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-48" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-7.60 0.80 2.90" rotation="0.00 -91.00 0.00"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-49" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-9.00 0.80 2.90" rotation="0.00 -91.00 0.00"
+      scale="2.00 3.66 2.00" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-7" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-2.20 0.90 2.60" rotation="0 0 0"
+      scale="2 1.08 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-36" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-2.20 0.90 11.30"
+      rotation="0 0 0" scale="2 1.08 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-37" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="-2.20 0.90 12.60"
+      rotation="0 0 0" scale="2.00 3.29 2.00" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-21" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="2.70 0.90 2.90" rotation="0.00 -92.00 0.00"
+      scale="2 1.08 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-28" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="5.20 0.90 2.90" rotation="0.00 -92.00 0.00"
+      scale="2 3.34 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-29" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="6.40 0.90 2.90" rotation="0.00 -92.00 0.00"
+      scale="2 1.86 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-54" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="11.70 0.90 2.90" rotation="0.00 -92.00 0.00"
+      scale="2 1.86 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-33" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="7.90 0.90 2.90" rotation="0.00 -92.00 0.00"
+      scale="2 1.1 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-53" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="10.40 0.90 2.90" rotation="0.00 -92.00 0.00"
+      scale="2 1.1 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-23" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="3.60 0.90 6.10" rotation="0.00 -92.00 0.00"
+      scale="2 2.08 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-32" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="7.40 0.90 6.10" rotation="0.00 -92.00 0.00"
+      scale="2 2.08 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-3" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="1.00 0.80 1.00" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-11" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="1.00 0.80 7.70" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-39" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="1.00 0.70 13.80" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-13" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="1.00 0.80 9.00" rotation="0 0 0"
+      scale="2 4.34 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-4" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="1.10 0.80 -2.00" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-27" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="1.00 0.80 -4.60" rotation="0 0 0"
+      scale="2 3.82 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-44" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials2mtl; obj: #building2obj;" position="1.00 0.80 -5.90" rotation="0 0 0"
+      scale="2.00 2.14 2.00" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-2" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="-2.30 0.60 -0.50"
+      rotation="0 0 0" scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="shadow" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="-4.80 0.60 2.70" rotation="0 0 0"
+      scale="2 3.3 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-8" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="-2.30 0.70 6.20" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-46" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="-4.50 0.70 6.20" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-51" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="-6.80 0.70 6.20" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-20" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="4.90 0.70 6.20" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-31" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="6.10 0.70 6.20" rotation="0 0 0"
+      scale="2 3.4 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-34" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="8.80 0.70 6.20" rotation="0 0 0"
+      scale="2 3.4 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-55" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="9.90 0.30 6.20" rotation="0 0 0"
+      scale="2.00 1.62 2.00" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-30" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="2.30 0.70 6.20" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-22" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="4.00 0.50 2.70" rotation="0 0 0"
+      scale="2 3.68 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-16" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="-2.40 0.70 10.00"
+      rotation="0 0 0" scale="2 5.92 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-38" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="-2.40 0.70 13.80"
+      rotation="0 0 0" scale="2.00 3.39 2.00" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-24" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="1.20 0.70 10.20" rotation="0 0 0"
+      scale="2 3.68 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-19" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="1.20 0.70 12.60" rotation="0 0 0"
+      scale="2 3.68 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-5" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="1.20 0.50 -3.40" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-45" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="1.20 0.50 -7.20" rotation="0 0 0"
+      scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-obj-model id="obj-model-14" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      obj-model="mtl: #materials1mtl; obj: #building1obj;" position="-2.30 0.50 -2.80"
+      rotation="0 0 0" scale="2 2 2" shadow="receive: true; cast: true;" visible="true"></a-obj-model>
+      
+      <a-plane id="plane" geometry="height: 500; width: 2.36;" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      position="-0.60 0.10 4.50" rotation="-90 0 0.00" scale="1 1 1" shadow="receive: true; cast: true;"
+      visible="true"></a-plane>
+      
+      <a-plane id="plane-1" geometry="height: 800; width: 2.36;" material="color: #ffffff; metalness: 0.5; opacity: 1; repeat: 1 1; roughness: 1; shader: standard; side: double;"
+      position="-0.60 0.10 4.50" rotation="-90 90 0.00" scale="1 1 1" shadow="receive: true; cast: true;"
+      visible="true"></a-plane>
+      
+      <a-sphere id="green" geometry="radius: 1;" material="color: #6fd2f5; metalness: 0.03; opacity: 1; repeat: 1 1; roughness: 0.15; shader: standard; side: double;"
+      position="1.3 6.3 -0.4" rotation="-21.78 -518.79 0.00" scale="0.25 0.25 0.25" shadow="receive: true; cast: true;"
+      visible="true" class="clickable" animation="delay: 0; dir: alternate; dur: 2000; easing: linear; elasticity: 400; loop: true; property: scale; startEvents: scene-started; to: 0.2 0.2 0.2; "></a-sphere>
+      
+      <a-sphere id="purple" geometry="radius: 0.56;" material="color: #ffffff; metalness: 0; opacity: 1; repeat: 1 1; roughness: 0.19; shader: standard; side: double;"
+      position="0.9 4.2 9.1" rotation="-21.78 -518.79 0.00" scale="0.25 0.25 0.25" shadow="receive: true; cast: true;"
+      visible="true" class="clickable" animation="delay: 500; dir: alternate; dur: 1500; easing: linear; elasticity: 400; loop: true; property: scale; startEvents: scene-started; to: 0.15 0.15 0.15; "></a-sphere>
+      
+      <a-sphere id="ballon-low-intersection" geometry="radius: 0.56;" material="color: #f56f6f; metalness: 0; opacity: 1; repeat: 1 1; roughness: 0.19; shader: standard; side: double;"
+      position="4.8 3.7 3.1" rotation="-21.78 -518.79 0.00" scale="0.25 0.25 0.25" shadow="receive: true; cast: true;"
+      visible="true" class="clickable" animation="delay: 500; dir: alternate; dur: 1500; easing: linear; elasticity: 400; loop: true; property: scale; startEvents: scene-started; to: 0.15 0.15 0.15; "></a-sphere>
+      
+      <a-sphere id="blue" geometry="radius: 1;" material="color: #f3f7fa; metalness: 0; opacity: 1; repeat: 1 1; roughness: 0.27; shader: standard; side: double;"
+      position="-2.50 3.20 10.10" rotation="-21.78 -518.79 0.00" scale="0.25 0.25 0.25"
+      shadow="receive: true; cast: true;" visible="true" class="clickable" animation="delay: 0; dir: alternate; dur: 1000; easing: linear; elasticity: 400; loop: true; property: scale; startEvents: scene-started; to: 0.15 0.15 0.15; "></a-sphere>
+      
+      <a-text id="text" position="-2.80 3.90 8.70" rotation="-14.48 -44.31 -0.00"
+      scale="1 1 1" shadow="receive: true; cast: true;" text="align: center; anchor: center; color: #0d0d0d; font: assets/Oswald-Bold.fnt; height: 0; letterSpacing: 0; lineHeight: 77.00; opacity: 0.5; side: double; value: CLICK THE BALLOONS
+TO NAVIGATE; width: 4.80; wrapCount: 36;" visible="true" animation="delay: 0; dir: normal; dur: 10000; easing: linear; elasticity: 400; loop: 0; property: position; startEvents: scene-started; to: -2.80 4.1 8.70; "
+      animation__1="delay: 0; dir: normal; dur: 8000; easing: linear; elasticity: 400; loop: 0; property: text.opacity; startEvents: scene-started; to: 0; "></a-text>
+    </a-scene>
+  </body>
+
+</html>
